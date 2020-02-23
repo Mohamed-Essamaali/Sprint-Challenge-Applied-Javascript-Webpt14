@@ -21,21 +21,46 @@
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(res=>{
     const cardsContainer = document.querySelector('.cards-container');
+    const obj = res.data.articles.javascript;
+    // const obj = res.data.articles.forEach(e=>e);
+    //I am supposed to get the following array, but it didn't happen Is my syntax is not right
+    //['javascript','bootstrap','technology','jquery','node'];
 
-    cardsContainer.appendChild( cardCreator(res.data,'bootstrap'));
+
+    for(let i = 0 ;i<obj.length;i++){
+        const obj = res.data.articles.javascript[i];
+        const objb = res.data.articles.bootstrap[i];
+        const objt = res.data.articles.technology[i];
+        const objq = res.data.articles.jquery[i];
+        const objn = res.data.articles.node[i];
+
+        cardsContainer.appendChild( cardCreator(obj));
+        cardsContainer.appendChild( cardCreator(objb));
+        cardsContainer.appendChild( cardCreator(objt));
+        cardsContainer.appendChild( cardCreator(objq));
+        cardsContainer.appendChild( cardCreator(objn));
+        
+    }
+
+    
+    cardsContainer.appendChild( cardCreator(obj));
 })
 .catch(err=>{
   console.log('failed here is the error',err)
 });
 
-const cardCreator = (obj,topic)=>{
+const cardCreator = (obj)=>{
+ 
+   
     
     const card = document.createElement('div');
     card.classList.add('card');
 
     const headline = document.createElement('div');
     headline.classList.add('headline');
-    headline.textContent = `headline ${obj.articles.topic}`;
+    
+    headline.textContent =`${obj.headline
+    })}` ;
     card.appendChild(headline);
 
     const author = document.createElement('div');
@@ -47,12 +72,15 @@ const cardCreator = (obj,topic)=>{
     author.appendChild(imgContainer);
 
     const authorImage = document.createElement('img');
-    authorImage.src = `${obj.articles.topic}`;
+    authorImage.src = `${obj.authorPhoto
+    }`;
     imgContainer.appendChild(authorImage);
     const name = document.createElement('span');
-    name.textContent = `${obj.articles.topic}`;
+    name.textContent = `${obj.authorName}`;
     author.appendChild(name);
     
     return card;
 
 }
+
+
