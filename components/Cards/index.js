@@ -59,8 +59,7 @@ const cardCreator = (obj)=>{
     const headline = document.createElement('div');
     headline.classList.add('headline');
     
-    headline.textContent =`${obj.headline
-    })}` ;
+    headline.textContent =`${obj.headline}` ;
     card.appendChild(headline);
 
     const author = document.createElement('div');
@@ -72,8 +71,7 @@ const cardCreator = (obj)=>{
     author.appendChild(imgContainer);
 
     const authorImage = document.createElement('img');
-    authorImage.src = `${obj.authorPhoto
-    }`;
+    authorImage.src = `${obj.authorPhoto}`;
     imgContainer.appendChild(authorImage);
     const name = document.createElement('span');
     name.textContent = `${obj.authorName}`;
