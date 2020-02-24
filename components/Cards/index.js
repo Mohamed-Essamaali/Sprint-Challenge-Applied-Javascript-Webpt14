@@ -21,27 +21,42 @@
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(res=>{
     const cardsContainer = document.querySelector('.cards-container');
-    const obj = res.data.articles.javascript;
+    
     // const obj = res.data.articles.forEach(e=>e);
     //I am supposed to get the following array, but it didn't happen Is my syntax is not right
     //['javascript','bootstrap','technology','jquery','node'];
+    
 
-
+    const obj = res.data.articles.javascript;
     for(let i = 0 ;i<obj.length;i++){
-        const obj = res.data.articles.javascript[i];
-        const objb = res.data.articles.bootstrap[i];
-        const objt = res.data.articles.technology[i];
-        const objq = res.data.articles.jquery[i];
-        const objn = res.data.articles.node[i];
+          cardsContainer.appendChild( cardCreator(obj[i]));
+        }
 
-        cardsContainer.appendChild( cardCreator(obj));
-        cardsContainer.appendChild( cardCreator(objb));
-        cardsContainer.appendChild( cardCreator(objt));
-        cardsContainer.appendChild( cardCreator(objq));
-        cardsContainer.appendChild( cardCreator(objn));
+        const objb = res.data.articles.bootstrap;
+        for(let i = 0 ;i<objb.length;i++){
+        cardsContainer.appendChild( cardCreator(objb[i]));
         
-    }
+        }
 
+        const objt = res.data.articles.technology;
+        for(let i = 0 ;i<objt.length;i++){
+        cardsContainer.appendChild( cardCreator(objt[i]));
+        
+        }
+        const objq = res.data.articles.jquery;
+        for(let i = 0 ;i<objq.length;i++){
+        cardsContainer.appendChild( cardCreator(objq[i]));
+       
+        }
+        const objn = res.data.articles.node;
+        for(let i = 0 ;i<objn.length;i++){
+        cardsContainer.appendChild( cardCreator(objn[i]));
+       
+        }
+   
+   
+    
+    
     
     cardsContainer.appendChild( cardCreator(obj));
 })
