@@ -26,39 +26,38 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     //I am supposed to get the following array, but it didn't happen Is my syntax is not right
     //['javascript','bootstrap','technology','jquery','node'];
     
-
+      //javascript
     const obj = res.data.articles.javascript;
     for(let i = 0 ;i<obj.length;i++){
           cardsContainer.appendChild( cardCreator(obj[i]));
         }
 
+        //bootstrap
         const objb = res.data.articles.bootstrap;
         for(let i = 0 ;i<objb.length;i++){
         cardsContainer.appendChild( cardCreator(objb[i]));
-        
         }
 
+        //technology
         const objt = res.data.articles.technology;
         for(let i = 0 ;i<objt.length;i++){
         cardsContainer.appendChild( cardCreator(objt[i]));
-        
         }
+
+        //jquery
         const objq = res.data.articles.jquery;
         for(let i = 0 ;i<objq.length;i++){
         cardsContainer.appendChild( cardCreator(objq[i]));
-       
         }
+
+        //node
         const objn = res.data.articles.node;
         for(let i = 0 ;i<objn.length;i++){
         cardsContainer.appendChild( cardCreator(objn[i]));
        
         }
-   
-   
-    
-    
-    
-    cardsContainer.appendChild( cardCreator(obj));
+  
+
 })
 .catch(err=>{
   console.log('failed here is the error',err)
