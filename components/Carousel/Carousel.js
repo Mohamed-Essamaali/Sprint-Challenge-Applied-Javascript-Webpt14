@@ -17,3 +17,48 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+
+// invoking the function
+  carouselFunction();
+
+rightButton = document.querySelector('.right-button');
+rightButton.addEventListener('click',()=>{
+
+});
+
+
+function carouselFunction(){
+
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
+
+  const leftButton = document.createElement('div');
+  leftButton.classList.add('left-button');
+  carousel.appendChild(leftButton);
+
+  const mountainsImg = document.createElement('img');
+  mountainsImg.src = "./assets/carousel/mountains.jpeg";
+  carousel.appendChild(mountainsImg);
+
+  const computerImg = document.createElement('img');
+  computerImg.src = './assets/carousel/computer.jpeg';
+  carousel.appendChild(computerImg);
+
+  const treesImg = document.createElement('img');
+  treesImg.src = './assets/carousel/trees.jpeg';
+  carousel.appendChild(treesImg);
+
+  const turntableImg = document.createElement('img');
+  turntableImg.src = './assets/carousel/turntable.jpeg';
+  carousel.appendChild(turntableImg);
+
+  const rightButton = document.createElement('div');
+  rightButton.classList.add('right-button');
+  carousel.appendChild(rightButton);
+
+  const carouselContainer = document.querySelector('.carousel-container');
+  carouselContainer.appendChild(carousel);
+  return carouselContainer;
+
+}

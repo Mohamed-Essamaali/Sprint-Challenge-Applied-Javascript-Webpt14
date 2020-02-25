@@ -20,50 +20,40 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(res=>{
-    const cardsContainer = document.querySelector('.cards-container');
     
-    // const obj = res.data.articles.forEach(e=>e);
-    //I am supposed to get the following array, but it didn't happen Is my syntax is not right
-    //['javascript','bootstrap','technology','jquery','node'];
     
-      //javascript
-    const obj = res.data.articles.javascript;
-    for(let i = 0 ;i<obj.length;i++){
-          cardsContainer.appendChild( cardCreator(obj[i]));
-        }
+      res.data.articles.javascript.forEach(card=>{
+        const cardsContainer = document.querySelector('.cards-container');
+        cardsContainer.appendChild(cardCreator(card))
+      });
 
-        //bootstrap
-        const objb = res.data.articles.bootstrap;
-        for(let i = 0 ;i<objb.length;i++){
-        cardsContainer.appendChild( cardCreator(objb[i]));
-        }
+      res.data.articles.bootstrap.forEach(card=>{
+        const cardsContainer = document.querySelector('.cards-container');
+        cardsContainer.appendChild(cardCreator(card))
+      });
 
-        //technology
-        const objt = res.data.articles.technology;
-        for(let i = 0 ;i<objt.length;i++){
-        cardsContainer.appendChild( cardCreator(objt[i]));
-        }
+      res.data.articles.technology.forEach(card=>{
+        const cardsContainer = document.querySelector('.cards-container');
+        cardsContainer.appendChild(cardCreator(card))
+      });
 
-        //jquery
-        const objq = res.data.articles.jquery;
-        for(let i = 0 ;i<objq.length;i++){
-        cardsContainer.appendChild( cardCreator(objq[i]));
-        }
+      res.data.articles.jquery.forEach(card=>{
+        const cardsContainer = document.querySelector('.cards-container');
+        cardsContainer.appendChild(cardCreator(card))
+      });
 
-        //node
-        const objn = res.data.articles.node;
-        for(let i = 0 ;i<objn.length;i++){
-        cardsContainer.appendChild( cardCreator(objn[i]));
-       
-        }
-  
+      res.data.articles.node.forEach(card=>{
+        const cardsContainer = document.querySelector('.cards-container');
+        cardsContainer.appendChild(cardCreator(card))
+      });
+
 
 })
 .catch(err=>{
   console.log('failed here is the error',err)
 });
 
-const cardCreator = (obj)=>{
+const cardCreator = (article)=>{
  
    
     
@@ -73,7 +63,7 @@ const cardCreator = (obj)=>{
     const headline = document.createElement('div');
     headline.classList.add('headline');
     
-    headline.textContent =`${obj.headline}` ;
+    headline.textContent =`${article.headline}` ;
     card.appendChild(headline);
 
     const author = document.createElement('div');
@@ -85,10 +75,10 @@ const cardCreator = (obj)=>{
     author.appendChild(imgContainer);
 
     const authorImage = document.createElement('img');
-    authorImage.src = `${obj.authorPhoto}`;
+    authorImage.src = `${article.authorPhoto}`;
     imgContainer.appendChild(authorImage);
     const name = document.createElement('span');
-    name.textContent = `${obj.authorName}`;
+    name.textContent = `${article.authorName}`;
     author.appendChild(name);
     
     return card;
